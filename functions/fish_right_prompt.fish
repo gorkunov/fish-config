@@ -20,8 +20,16 @@ function ruby_version
     set -l ruby_version (rbenv version 2> /dev/null | sed 's/[ \t].*$//')
     echo -n (set_color $fish_ruby_version)"["$ruby_version"]"(set_color normal)
 end
+
+function heroku_active_app
+    if test -n (echo $heroku_app)
+      echo (set_color yellow)"[heroku:$heroku_app]"(set_color normal)
+    end
+end
  
 function fish_right_prompt
     echo -n (git_info)
+    echo -n (heroku_active_app)
     echo -n (ruby_version)
 end
+

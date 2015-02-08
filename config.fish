@@ -2,13 +2,23 @@ set fish_path $HOME/.config/fish
 set fish_greeting
  
 . $fish_path/boxen/env.fish
+. $fish_path/boxen/npm.fish
 
 . $fish_path/aliases.fish
+. $fish_path/functions/commits.fish
  
 set LC_CTYPE "utf-8"
+set JRUBY_OPTS "--1.9"
+
+set -gx GOPATH $HOME/Projects/gocode
+set -x PATH $GOPATH/bin $PATH
+
+set JAVACMD (which drip)
+set DRIP_INIT_CLASS 'org.jruby.main.DripMain'
+set GIT_MERGE_AUTOEDIT no
  
 set RBENV_ROOT $BOXEN_HOME/rbenv
-set PATH $BOXEN_HOME/rbenv/bin $BOXEN_HOME/rbenv/plugins/ruby-build/bin $PATH
+set PATH $BOXEN_HOME/rbenv/bin $BOXEN_HOME/rbenv/plugins/ruby-build/bin $BOXEN_HOME/homebrew/share/python $PATH
 
 rbenv rehash >/dev/null ^&1
  

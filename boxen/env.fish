@@ -19,3 +19,6 @@ end
 
 # version
 set BOXEN_SETUP_VERSION (set GIT_DIR $BOXEN_HOME/repo/.git git rev-parse --short HEAD)
+
+set BOXEN_NVM_DIR $BOXEN_HOME/nvm
+set BOXEN_NVM_DEFAULT_VERSION 'v0.10.1'
